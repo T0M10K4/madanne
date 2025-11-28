@@ -11,8 +11,8 @@ export const ParticleTransition = ({ onComplete }: ParticleTransitionProps) => {
     // Criar partículas
     const newParticles = Array.from({ length: 30 }, (_, i) => ({
       id: i,
-      x: Math.random() * 400 - 200,
-      y: Math.random() * 400 - 200,
+      x: Math.random() * 500 - 250,
+      y: Math.random() * 500 - 250,
       color: i % 3 === 0 ? "bg-primary" : i % 3 === 1 ? "bg-accent" : "bg-primary-glow",
     }));
     
@@ -31,7 +31,7 @@ export const ParticleTransition = ({ onComplete }: ParticleTransitionProps) => {
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className={`absolute w-3 h-3 rounded-full ${particle.color}`}
+          className={`absolute w-4 h-4 rounded-full ${particle.color}`}
           style={{
             '--tx': `${particle.x}px`,
             '--ty': `${particle.y}px`,

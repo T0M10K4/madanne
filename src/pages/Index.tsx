@@ -5,6 +5,7 @@ import { Sunflower } from "@/components/Sunflower";
 import { LoveCounter } from "@/components/LoveCounter";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
 import { FallingSunflowers } from "@/components/FallingSunflowers";
+import { AudioPlayer } from "@/components/AudioPlayer";
 
 const Index = () => {
   const [hasStarted, setHasStarted] = useState(false);
@@ -50,6 +51,7 @@ const Index = () => {
           </div>
           
           <PhotoCarousel />
+          <AudioPlayer autoPlay={true} />
         </div>
       )}
     </div>
