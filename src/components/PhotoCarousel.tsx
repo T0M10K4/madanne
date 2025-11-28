@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import photo1 from "@/assets/photo1.jpg";
 import photo2 from "@/assets/photo2.jpg";
 import photo3 from "@/assets/photo3.jpg";
@@ -15,25 +17,33 @@ const photos = [
 ];
 
 export const PhotoCarousel = () => {
+  const [emblaRef] = useEmblaCarousel({ 
+    loop: true,
+    dragFree: true,
+    containScroll: false,
+  });
+
   return (
     <div className="w-full overflow-hidden bg-card/40 backdrop-blur-sm py-8 border-t border-primary/20 animate-fade-in" style={{ animationDelay: "1s" }}>
-      <div className="flex animate-marquee">
-        {/* Duplicar as fotos para criar o loop infinito */}
-        {[...photos, ...photos].map((photo, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 mx-4 group"
-          >
-            <div className="relative bg-card p-3 rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-105 hover:rotate-2 border-4 border-card">
-              <img
-                src={photo}
-                alt={`Memória ${(index % photos.length) + 1}`}
-                className="w-48 h-64 md:w-64 md:h-80 object-cover rounded-xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {[...photos, ...photos].map((photo, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 mx-4 group cursor-grab active:cursor-grabbing"
+            >
+              <div className="relative bg-card p-3 rounded-2xl shadow-xl transform transition-transform duration-300 hover:scale-105 hover:rotate-2 border-4 border-card select-none">
+                <img
+                  src={photo}
+                  alt={`Memória ${(index % photos.length) + 1}`}
+                  className="w-48 h-64 md:w-64 md:h-80 object-cover rounded-xl pointer-events-none"
+                  draggable="false"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { ParticleTransition } from "@/components/ParticleTransition";
 import { Sunflower } from "@/components/Sunflower";
 import { LoveCounter } from "@/components/LoveCounter";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
+import { FallingSunflowers } from "@/components/FallingSunflowers";
 
 const Index = () => {
   const [hasStarted, setHasStarted] = useState(false);
@@ -20,6 +21,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full relative overflow-hidden">
+      {/* Mini girassóis caindo nas laterais */}
+      {hasStarted && <FallingSunflowers />}
+      
       {/* Partículas de fundo sutis */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-10 left-10 w-2 h-2 bg-primary/20 rounded-full animate-float" />

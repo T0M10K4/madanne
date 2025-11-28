@@ -121,6 +121,20 @@ export default {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        fall: {
+          "0%": { 
+            transform: "translateY(-50px) rotate(0deg)",
+            opacity: "0.4"
+          },
+          "100%": { 
+            transform: "translateY(100vh) rotate(360deg)",
+            opacity: "0"
+          },
+        },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -131,6 +145,8 @@ export default {
         "particle-burst": "particle-burst 1s ease-out forwards",
         bloom: "bloom 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards",
         marquee: "marquee 40s linear infinite",
+        fall: "fall 12s linear infinite",
+        "spin-slow": "spin-slow 10s linear infinite",
       },
     },
   },
