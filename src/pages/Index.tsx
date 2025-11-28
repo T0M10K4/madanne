@@ -6,6 +6,7 @@ import { LoveCounter } from "@/components/LoveCounter";
 import { PhotoCarousel } from "@/components/PhotoCarousel";
 import { FallingSunflowers } from "@/components/FallingSunflowers";
 import { AudioPlayer } from "@/components/AudioPlayer";
+import { DecorativeParticles } from "@/components/DecorativeParticles";
 
 const Index = () => {
   const [hasStarted, setHasStarted] = useState(false);
@@ -24,6 +25,9 @@ const Index = () => {
     <div className="min-h-screen w-full relative overflow-hidden">
       {/* Mini girassóis caindo nas laterais */}
       {hasStarted && <FallingSunflowers />}
+      
+      {/* Partículas decorativas de fundo */}
+      {hasStarted && <DecorativeParticles />}
       
       {/* Partículas de fundo sutis */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
